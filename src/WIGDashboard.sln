@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIGDashboard", "WIGDashboar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{758EFDD5-0D94-4ABE-B055-FED6904C74AE}"
 	ProjectSection(SolutionItems) = preProject
+		..\Readme.md = ..\Readme.md
 		WE-settings.xml = WE-settings.xml
 	EndProjectSection
 EndProject
