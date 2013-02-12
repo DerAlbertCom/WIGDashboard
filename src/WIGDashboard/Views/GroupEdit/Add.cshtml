@@ -1,0 +1,13 @@
+﻿@model object
+
+@{
+    var type = Model.GetType();
+}
+<div id="formAdd" class="page">
+
+    @using (Html.BeginForm("Create", type.Name))
+    {
+         @Html.EditorForModel()   
+        <button type="submit">Hinzufügen</button>
+    }
+ </div>

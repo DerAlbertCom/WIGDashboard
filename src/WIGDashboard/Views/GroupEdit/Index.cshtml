@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Group>
+@{
+    ViewBag.Title = "Bearbeiten";
+    ViewBag.PageName = "Waltner IT Administration";
+}
+<div id="content">
+    <h2>Bearbeiten</h2>
+    @foreach (var group in Model)
+    {
+        var css = group.Title.Length > 8 ? "widetile" : "tile";
+        <div class="@css">
+            <h3>@Html.ActionLink(group.Title, group.Id)</h3>
+        </div>
+    }
+</div>
+<div id="groups"/>
+@section scripts {
+
+    <script type="text/x-jquery-tmpl" id="groupTemplate">@Html.Partial("GroupTemplate")</script>
+
+    <script type="text/javascript">
+        WIG.IT.Start(null);
+    </script>
+}

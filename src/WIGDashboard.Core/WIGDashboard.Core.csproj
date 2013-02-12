@@ -32,11 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aperea.Bootstrap">
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.69\lib\net40\Aperea.Bootstrap.dll</HintPath>
+    <Reference Include="Aperea.Bootstrap, Version=1.0.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Bootstrap.1.0.0.69\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Data.EntityFramework">
-      <HintPath>..\packages\Aperea.Data.EntityFramework.0.7.3.69\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
+    <Reference Include="Aperea.Data.EntityFramework, Version=1.0.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Data.EntityFramework.1.0.0.69\lib\net40\Aperea.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -59,7 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\WIGDbContext.cs" />
+    <Compile Include="Data\DevelopmentDbContextInitializer.cs" />
+    <Compile Include="Entities\Camera.cs" />
+    <Compile Include="Entities\EntryBase.cs" />
+    <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Router.cs" />
+    <Compile Include="Entities\Storage.cs" />
+    <Compile Include="Infrastructure\IoC\CoreRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GroupDisplayService.cs" />
+    <Compile Include="Services\GroupEditService.cs" />
+    <Compile Include="Services\IGroupDisplayService.cs" />
+    <Compile Include="Services\IGroupEditService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

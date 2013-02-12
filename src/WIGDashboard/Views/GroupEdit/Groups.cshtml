@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Group>
+@{
+    var type = Model.GetType().GetGenericArguments()[0];
+    ViewBag.Title = type.Name + " bearbeiten";
+    ViewBag.PageName = type.Name + " bearbeiten";
+}
+<h2>Bearbeiten</h2>
+<div id="overview" class="page currentPage">
+    <ul>
+        @foreach (var entryInfo in Model)
+        {
+            <li><a data-form="Edit" data-id="@(entryInfo.Id)" data-type="@entryInfo.GetType().Name">@entryInfo.Title</a></li>
+        }
+    </ul>
+    <a data-form="Add" data-id="0">Hinzufügen</a>
+</div>
+@{
+    var item = Activator.CreateInstance(type);
+}
+@Html.Partial("Add",item)
+@Html.Partial("Edit",item)
+

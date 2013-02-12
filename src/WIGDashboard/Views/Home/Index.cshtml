@@ -1,7 +1,36 @@
-﻿@model dynamic
-
+﻿@model object
 @{
-    ViewBag.Title = "Startseite";
+    ViewBag.Title = "Index";
 }
+@section scripts
+{
+    <script>
+        require(["application/it"]);
+    </script>
+}
+<nav class="pageGroup">
+    <ul>
+        <li class="currentPageGroup" data-group-selector="show">Infrastruktur</li>
+        <li data-group-selector="admin">Administration</li>
+    </ul></nav>
+<div class="pageGroup currentPageGroup" id="show">
+    @Html.Action("Index","Infrastructur")
+</div>
+<div class="pageGroup" id="admin">
+    <div class="widetile" data-select-id="cameras">
+<h2>asdfasdf</h2>
+<p>asdfasdf</p>
+</div>
 
-<h2>title</h2>
+<div class="tile" data-select-id="router">
+<h2>asdfasdf</h2>
+<p>asdfasdf</p>
+</div>
+
+<div class="widetile" data-select-id="storage">
+<h2>asdfasdf</h2>
+<p>asdfasdf</p>
+</div>
+
+
+</div>

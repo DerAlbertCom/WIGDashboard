@@ -41,11 +41,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aperea.Bootstrap">
-      <HintPath>..\packages\Aperea.Bootstrap.0.7.3.69\lib\net40\Aperea.Bootstrap.dll</HintPath>
+    <Reference Include="Aperea.Bootstrap, Version=1.0.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Bootstrap.1.0.0.69\lib\net40\Aperea.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="Aperea.Bootstrap.Mvc">
-      <HintPath>..\packages\Aperea.Bootstrap.Mvc.0.7.3.69\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
+    <Reference Include="Aperea.Bootstrap.Mvc, Version=1.0.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aperea.Bootstrap.Mvc.1.0.0.69\lib\net40\Aperea.Bootstrap.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Aperea.Data.EntityFramework, Version=1.0.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WIGDashboard.Core\bin\Debug\Aperea.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1-ci9004\lib\net40\AutoMapper.dll</HintPath>
@@ -209,14 +215,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GroupEditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfrastructurController.cs" />
+    <Compile Include="Controllers\WIGController.cs" />
+    <Compile Include="Filters\DisposeDatabaseContextOnActionExecutedFilter.cs" />
     <Compile Include="Infrastructure\Bootstrapping\BundleConfig.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\DatabaseConfig.cs" />
     <Compile Include="Infrastructure\Bootstrapping\FilterConfig.cs" />
     <Compile Include="Infrastructure\Bootstrapping\RouteConfig.cs" />
     <Compile Include="Infrastructure\Bootstrapping\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Optimization\JsMinifyWithRename.cs" />
+    <Compile Include="Optimization\ScriptBundleWithoutRename.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +242,10 @@
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="js\d.ts\angular\angular-resource.d.ts" />
+    <Content Include="js\d.ts\angular\angular.d.ts" />
+    <Content Include="js\d.ts\jquery\jquery.d.ts" />
+    <Content Include="js\d.ts\signalr\signalr.d.ts" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -415,7 +433,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -428,18 +448,34 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\GroupEdit\Add.cshtml" />
+    <Content Include="Views\GroupEdit\Edit.cshtml" />
+    <Content Include="Views\GroupEdit\Groups.cshtml" />
+    <Content Include="Views\GroupEdit\GroupTemplate.cshtml" />
+    <Content Include="Views\GroupEdit\Index.cshtml" />
+    <Content Include="Views\Infrastructur\Cameras.cshtml" />
+    <Content Include="Views\Infrastructur\Index.cshtml" />
+    <Content Include="Views\Infrastructur\Main.cshtml" />
+    <Content Include="Views\Infrastructur\Router.cshtml" />
+    <Content Include="Views\Infrastructur\Storage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Filters\" />
     <Folder Include="Images\" />
-    <Folder Include="js\" />
+    <Folder Include="js\Initialize\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\GroupEdit\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WIGDashboard.Core\WIGDashboard.Core.csproj">
+      <Project>{17C5B80B-4FF9-4C14-9EEF-63778856AABA}</Project>
+      <Name>WIGDashboard.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

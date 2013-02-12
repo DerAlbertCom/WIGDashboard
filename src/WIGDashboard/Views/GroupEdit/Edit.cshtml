@@ -1,0 +1,12 @@
+﻿@model object
+@{
+    var type = Model.GetType();
+}
+<div id="formEdit" class="page">
+    @using (Html.BeginForm("Edit", type.Name))
+    {
+        @Html.EditorForModel()
+        <button type="submit">Änderung speichern</button>
+    }
+</div>
+
